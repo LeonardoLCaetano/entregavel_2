@@ -21,10 +21,9 @@ let alunos = []
 
 function CadastrarAluno(nome, idade, nota, array) {
   let objAluno = new Aluno(nome, idade, nota)
-  if (!array.some(x => x.Nome == nome)) {
+  if (!array.some(x => x.Nome == nome)) 
     alunos.push(objAluno)
     return objAluno
-  }
 }
 
 function OrdenarPorNota(array) {
@@ -33,7 +32,7 @@ function OrdenarPorNota(array) {
 }
 
 function OrdenarPorIdade(array) {
-  array.sort((a, b) => a.Idade - b.Idade)
+  array.sort((a, b) => b.Idade - a.Idade)
   return array
 }
 
@@ -50,17 +49,17 @@ function OrdenarPorNome(array) {
       return 1;
     }
 
-    return 0
-  })
+    return 0;
+  });
 
   return array
 }
 
 function CalcularMedia(array) {
-  if (array.length == 0) {
+  if (array.length === 0) {
     return 0;
   }
-  let somaNotas = 0
+  let somaNotas = 0;
   forEach((aluno) => {
     somaNotas += Number(aluno.Nota)
   })
