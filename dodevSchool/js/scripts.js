@@ -22,7 +22,7 @@ let arrayAlunos = []
 function CadastrarAluno(nome, idade, nota, array) {
   let objAluno = new Aluno(nome, idade, nota)
   if (!array.some(x => x.Nome == nome)) 
-    alunos.push(objAluno)
+    array.push(objAluno)
     return objAluno
 }
 
