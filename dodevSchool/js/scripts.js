@@ -15,7 +15,7 @@ class Aluno {
 }
 
 // Array
-let alunos = []
+let arrayAlunos = []
 
 //funções projeto
 
