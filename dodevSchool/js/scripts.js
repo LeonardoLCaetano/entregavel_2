@@ -2,33 +2,70 @@
 ////////////////// FAÇA O SEU CÓDIGO AQUI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 ////////////////////////////////////////////////////////////////////////
 
+
 class Aluno {
-  
+  Nome
+  Idade
+  Nota
+  constructor(nome, idade, nota) {
+    this.Nome = nome
+    this.Idade = idade
+    this.Nota = nota
+  }
 }
 
 // Array
-
+let alunos = []
 
 //funções projeto
 
-function CadastrarAluno() {
-  
+function CadastrarAluno(nome, idade, nota, array) {
+  let objAluno = new Aluno(nome, idade, nota)
+  if (!array.some(x => x.Nome == nome)) {
+    alunos.push(objAluno)
+    return objAluno
+  }
 }
 
-function OrdenarPorNota() {
- 
+function OrdenarPorNota(array) {
+  array.sort((a, b) => a.Nota - b.Nota)
+  return array
 }
 
-function OrdenarPorIdade() {
-
+function OrdenarPorIdade(array) {
+  array.sort((a, b) => a.Idade - b.Idade)
+  return array
 }
 
-function OrdenarPorNome() {
+function OrdenarPorNome(array) {
+  array.sort((a, b) => {
+    const nomeA = a.Nome.toUpperCase();
+    const nomeB = b.Nome.toUpperCase();
 
+    if (nomeA < nomeB) {
+      return -1;
+    }
+
+    if (nomeA > nomeB) {
+      return 1;
+    }
+
+    return 0
+  })
+
+  return array
 }
 
-function CalcularMedia(){
-
+function CalcularMedia(array) {
+  if (array.length == 0) {
+    return 0;
+  }
+  let somaNotas = 0
+  forEach((aluno) => {
+    somaNotas += Number(aluno.Nota)
+  })
+const media = somaNotas / array.length;
+return media
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -101,7 +138,7 @@ const saveAluno = (nome, idade, nota, done = 0, save = 1) => {
   // Utilizando dados da localStorage
 
   alunoList.appendChild(aluno);
-  
+
 
   const media = document.querySelector("#media");
   media.textContent = CalcularMedia(arrayAlunos).toFixed(2)
